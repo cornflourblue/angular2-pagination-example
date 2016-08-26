@@ -28,7 +28,7 @@ export class AppComponent {
     }
 
     setPage(page: number) {
-        if (page < 1) {
+        if (page < 1 || page > this.pager.totalPages) {
             return;
         }
 
