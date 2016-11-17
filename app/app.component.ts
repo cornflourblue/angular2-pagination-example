@@ -1,4 +1,7 @@
 ﻿import { Component, OnInit } from '@angular/core';
+import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map'
 
 import * as _ from 'underscore';
 
@@ -11,10 +14,10 @@ import { PagerService } from './_services/index'
 })
 
 export class AppComponent {
-    constructor(private pagerService: PagerService) { }
+    constructor(private http: Http, private pagerService: PagerService) { }
 
-    // dummy array of items to be paged
-    private dummyItems = _.range(1, 151);
+    // array of all items to be paged
+    private allItems: any[];
 
     // pager object
     pager: any = {};
@@ -23,8 +26,16 @@ export class AppComponent {
     pagedItems: any[];
 
     ngOnInit() {
-        // initialize to page 1
-        this.setPage(1);
+        // get dummy data
+        this.http.get('./dummy-data.json')
+            .map((response: Response) => response.json())
+            .subscribe(data => {
+                // set dummy items to json response
+                this.allItems = data;
+
+                // initialize to page 1
+                this.setPage(1);
+            });
     }
 
     setPage(page: number) {
@@ -33,9 +44,9 @@ export class AppComponent {
         }
 
         // get pager object from service
-        this.pager = this.pagerService.getPager(this.dummyItems.length, page);
+        this.pager = this.pagerService.getPager(this.allItems.length, page);
 
         // get current page of items
-        this.pagedItems = this.dummyItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
 }

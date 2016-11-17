@@ -4,10 +4,10 @@
             <h1>Angular 2 - Pagination Example with logic like Google</h1>
 
             <!-- items being paged -->
-            <div *ngFor="let item of pagedItems">Item {{item}}</div>
+            <div *ngFor="let item of pagedItems">{{item.name}}</div>
 
             <!-- pager -->
-            <ul *ngIf="pager.pages.length" class="pagination">
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
                 <li [ngClass]="{disabled:pager.currentPage === 1}">
                     <a (click)="setPage(1)">First</a>
                 </li>
