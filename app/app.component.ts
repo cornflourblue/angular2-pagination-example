@@ -13,7 +13,7 @@ import { PagerService } from './_services/index'
     templateUrl: 'app.component.html'
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
     constructor(private http: Http, private pagerService: PagerService) { }
 
     // array of all items to be paged
@@ -30,7 +30,7 @@ export class AppComponent {
         this.http.get('./dummy-data.json')
             .map((response: Response) => response.json())
             .subscribe(data => {
-                // set dummy items to json response
+                // set items to json response
                 this.allItems = data;
 
                 // initialize to page 1
