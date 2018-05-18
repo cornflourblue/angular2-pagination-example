@@ -24,8 +24,7 @@
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
             // other libraries
-            'rxjs': 'npm:rxjs',
-            'underscore': 'npm:underscore/underscore.js'
+            'rxjs': 'npm:rxjs'
         },
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {

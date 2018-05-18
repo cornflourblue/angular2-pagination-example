@@ -24,12 +24,10 @@
         "core-js": "^2.4.1",
         "rxjs": "^5.5.0",
         "systemjs": "^0.19.47",
-        "zone.js": "^0.8.5",
-        "underscore": "^1.8.3"
+        "zone.js": "^0.8.5"
     },
     "devDependencies": {
         "@types/node": "^8.0.53",
-        "@types/underscore": "^1.7.33",
         "concurrently": "^3.1.0",
         "lite-server": "^2.3.0",
         "typescript": "^2.2.2"
