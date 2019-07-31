@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   // array of all items to be paged
   private allItems: any;
 
+  title = "angular-pagination";
+
   // pager object
   pager: any = {};
 
