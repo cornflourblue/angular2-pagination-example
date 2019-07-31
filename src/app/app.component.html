@@ -1,0 +1,45 @@
+﻿<div>
+  <div class="container">
+    <div class="text-center">
+      <h1>Angular 2 - Pagination Example with logic like Google</h1>
+
+      <!-- items being paged -->
+      <div *ngFor="let item of pagedItems">{{ item.name }}</div>
+
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{ disabled: pager.currentPage === 1 }">
+          <a (click)="setPage(1)">First</a>
+        </li>
+        <li [ngClass]="{ disabled: pager.currentPage === 1 }">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li
+          *ngFor="let page of pager.pages"
+          [ngClass]="{ active: pager.currentPage === page }"
+        >
+          <a (click)="setPage(page)">{{ page }}</a>
+        </li>
+        <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{ disabled: pager.currentPage === pager.totalPages }">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr />
+  <div class="credits text-center">
+    <p>
+      <a
+        href="http://jasonwatmore.com/post/2016/08/23/Angular-2-Pagination-Example-with-Logic-like-Google.aspx"
+        target="_top"
+        >Angular 2 - Pagination Example with logic like Google</a
+      >
+    </p>
+    <p>
+      <a href="http://jasonwatmore.com" target="_top">JasonWatmore.com</a>
+    </p>
+  </div>
+</div>
