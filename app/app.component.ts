@@ -26,6 +26,7 @@ export class AppComponent implements OnInit {
         endPage: 0,
         startIndex: 0,
         endIndex: 0,
+        range: [],
         pages: [],
     };
 
@@ -47,7 +48,7 @@ export class AppComponent implements OnInit {
 
     setPage(page: number) {
         // get pager object from service
-        this.pager = this.pagerService.getPager<DummyDataObject>(this.allItems.length, page, 1);
+        this.pager = this.pagerService.getPager<DummyDataObject>(this.allItems, page, 1);
 
         // get current page of items
         this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
