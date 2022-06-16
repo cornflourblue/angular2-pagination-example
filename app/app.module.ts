@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent }  from './app.component';
 
-import { PagerService } from './_services/index';
+import { PaginationService } from './_services/index';
 
 @NgModule({
     imports: [
@@ -15,7 +15,7 @@ import { PagerService } from './_services/index';
         AppComponent
     ],
     providers: [
-        PagerService
+        PaginationService
     ],
     bootstrap: [AppComponent]
 })
